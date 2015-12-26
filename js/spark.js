@@ -47,7 +47,7 @@ Spark.prototype.die = function(ctx) {
 
 Spark.prototype.draw = function(ctx) {
   ctx.save();
-  ctx.fillStyle = 'hsl(50, 100%, ' + Math.round(40 + 60*this.heat) + '%)';
+  ctx.fillStyle = 'hsl(40, 100%, ' + Math.round(40 + 60*this.heat) + '%)';
   ctx.fillRect(this.x, this.y, this.size, this.size);
   ctx.restore();
 }

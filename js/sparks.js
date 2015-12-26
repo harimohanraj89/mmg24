@@ -47,7 +47,12 @@ SparksCollection.prototype.click = function(event, manager) {
   var clientRect = manager.canvas.getBoundingClientRect();
   var x = (event.clientX - clientRect.left) * 2;
   var y = (event.clientY - clientRect.top) * 2;
-  this.makeSparks(x, y, manager.canvas.height);
+
+  if (this.blocksCollection.blockAt(x, y)) {
+    this.blocksCollection.blockAt(x, y).glow();
+  } else {
+    this.makeSparks(x, y, manager.canvas.height);
+  }
 };
 
 SparksCollection.prototype.makeSparks = function(x, y, killHeight) {
@@ -85,6 +90,7 @@ SparksCollection.prototype.detectCollisions = function() {
       var spark = this.sparks[j];
       if (this.overlapping(spark, block)) {
         this.bounceSpark(spark, block);
+        block.pulse();
       }
     }
   }
@@ -96,7 +102,6 @@ SparksCollection.prototype.overlapping = function(spark, block) {
 };
 
 SparksCollection.prototype.bounceSpark = function(spark, block) {
-
   var dx = spark.x - block.x;
   var dy = spark.y - block.y;
 
@@ -112,5 +117,4 @@ SparksCollection.prototype.bounceSpark = function(spark, block) {
     spark.vy *= -0.2;
     spark.y = 2 * block.y - spark.y - spark.size;
   }
-
 };

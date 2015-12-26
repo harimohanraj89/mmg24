@@ -40,3 +40,12 @@ BlocksCollection.prototype.init = function() {
 BlocksCollection.prototype.events = function() {
 
 };
+
+BlocksCollection.prototype.blockAt = function(x, y) {
+  for (var i in this.blocks) {
+    var block = this.blocks[i];
+    if (x > block.x && x < block.x + block.size && y > block.y && y < block.y + block.size) {
+      return block;
+    }
+  }
+};

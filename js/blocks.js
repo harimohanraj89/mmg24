@@ -1,4 +1,4 @@
-var Blocks = function() {
+var BlocksCollection = function() {
   this.blockSize = 60;
   this.structure = [
     [1,0,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,0,1,0,0,0,1,1,1,0,1,1,0,0,1,1,1,0,1,0,1],
@@ -12,13 +12,13 @@ var Blocks = function() {
   this.events();
 }
 
-Blocks.prototype.animate = function(ctx, dt) {
+BlocksCollection.prototype.animate = function(ctx, dt) {
   for (var i = this.blocks.length - 1; i >= 0; i--) {
     this.blocks[i].animate(ctx, dt);
   }
 };
 
-Blocks.prototype.init = function() {
+BlocksCollection.prototype.init = function() {
   var offsetX = 490;
   var offsetY = 800;
   for (var row = 0; row < this.structure.length; row++) {
@@ -37,6 +37,6 @@ Blocks.prototype.init = function() {
   }
 }
 
-Blocks.prototype.events = function() {
+BlocksCollection.prototype.events = function() {
 
 };

@@ -5,7 +5,7 @@ window.onload = function() {
     canvas: document.getElementById('canvas'),
     states: [
       new Introduction(),
-      new Sparks()
+      new SparksCollection()
     ]
   }).animate();
 }

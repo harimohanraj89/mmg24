@@ -2,7 +2,8 @@ var Spark = function(params) {
   this.id = params.id;
   this.x = params.x;
   this.y = params.y;
-  this.lifetime = 3000;
+  this.size = 10;
+  this.lifetime = 2000;
   this.killHeight = params.killHeight;
 
   this.heat = 1;
@@ -26,7 +27,7 @@ Spark.prototype.verlet = function(dt) {
   this.vy += dt/1000 * GRAVITY/2;
 
   this.lifetime -= dt;
-  this.heat = this.lifetime/3000;
+  this.heat = this.lifetime/2000;
 }
 
 Spark.prototype.checkDeath = function(dt) {
@@ -47,6 +48,6 @@ Spark.prototype.die = function(ctx) {
 Spark.prototype.draw = function(ctx) {
   ctx.save();
   ctx.fillStyle = 'hsl(50, 100%, ' + Math.round(40 + 60*this.heat) + '%)';
-  ctx.fillRect(this.x, this.y, 10, 10);
+  ctx.fillRect(this.x, this.y, this.size, this.size);
   ctx.restore();
 }

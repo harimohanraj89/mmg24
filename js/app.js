@@ -8,4 +8,4 @@ window.onload = function() {
       new SparksCollection()
     ]
   }).animate();
-}
+};

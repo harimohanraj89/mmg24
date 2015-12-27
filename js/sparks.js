@@ -27,7 +27,7 @@ SparksCollection.prototype.animate = function(ctx, dt) {
 
   this.blocksCollection.animate(ctx, dt);
 
-  this.detectCollisions()
+  this.detectCollisions();
 };
 
 SparksCollection.prototype.prompt = function(ctx) {

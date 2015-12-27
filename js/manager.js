@@ -10,11 +10,11 @@ Manager.prototype.events = function() {
   this.canvas.addEventListener('click', function(event) {
     this.currentState().click(event, this);
   }.bind(this))
-}
+};
 
 Manager.prototype.currentState = function() {
   return this.states[this.index];
-}
+};
 
 Manager.prototype.animate = function(t) {
   if (t) {
@@ -28,9 +28,9 @@ Manager.prototype.animate = function(t) {
   }
   this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   this.currentState().animate(this.context, dt);
-  requestAnimationFrame(this.animate.bind(this))
-}
+  requestAnimationFrame(this.animate.bind(this));
+};
 
 Manager.prototype.nextState = function() {
   this.index = Math.min(this.index + 1, this.states.length - 1);
-}
+};

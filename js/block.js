@@ -13,15 +13,15 @@ Block.prototype.animate = function(ctx, dt) {
   ctx.restore();
 
   this.heat = Math.max(this.heat - dt/1000, this.minHeat)
-}
+};
 
 Block.prototype.pulse = function(ctx, dt) {
   if (this.heat === this.minHeat) {
     this.heat = 1;
   }
-}
+};
 
 Block.prototype.glow = function(ctx, dt) {
   this.heat = 1;
   this.minHeat = 0.8
-}
+};

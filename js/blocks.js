@@ -10,7 +10,7 @@ var BlocksCollection = function() {
   this.blocks = [];
   this.init();
   this.events();
-}
+};
 
 BlocksCollection.prototype.animate = function(ctx, dt) {
   for (var i = this.blocks.length - 1; i >= 0; i--) {
@@ -35,7 +35,7 @@ BlocksCollection.prototype.init = function() {
       }
     }
   }
-}
+};
 
 BlocksCollection.prototype.events = function() {
 

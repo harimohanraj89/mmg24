@@ -9,13 +9,13 @@ var Spark = function(params) {
   this.heat = 1;
   this.vx = params.vx || 0;
   this.vy = params.vy || 0;
-}
+};
 
 Spark.prototype.animate = function(ctx, dt) {
   this.verlet(dt);
   this.draw(ctx);
   this.checkDeath();
-}
+};
 
 Spark.prototype.verlet = function(dt) {
   this.lastx = this.x;
@@ -28,7 +28,7 @@ Spark.prototype.verlet = function(dt) {
 
   this.lifetime -= dt;
   this.heat = this.lifetime/2000;
-}
+};
 
 Spark.prototype.checkDeath = function(dt) {
   if (this.y > this.killHeight) {
@@ -43,11 +43,11 @@ Spark.prototype.checkDeath = function(dt) {
 Spark.prototype.die = function(ctx) {
   var sparkDeath = new CustomEvent('sparkDeath', { 'detail': this.id });
   dispatchEvent(sparkDeath);
-}
+};
 
 Spark.prototype.draw = function(ctx) {
   ctx.save();
   ctx.fillStyle = 'hsl(40, 100%, ' + Math.round(40 + 60*this.heat) + '%)';
   ctx.fillRect(this.x, this.y, this.size, this.size);
   ctx.restore();
-}
+};
